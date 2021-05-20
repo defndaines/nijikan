@@ -58,3 +58,45 @@
 
   (testing "aging of senior cells"
     (is (= 0 (njk/age [[3]] [0 0])))))
+
+(def case-one
+  [[0 0 2 2 0 0 0 0 0 0]
+   [0 0 0 0 1 3 1 0 0 0]
+   [0 0 0 2 0 3 0 0 1 3]
+   [0 0 0 0 1 3 0 0 0 3]
+   [0 2 2 0 0 0 1 3 1 0]
+   [0 0 0 0 0 2 2 0 0 0]
+   [0 0 2 0 2 0 0 0 0 0]
+   [0 0 0 0 2 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]])
+
+(def case-one-after
+  [[0 0 3 3 0 0 0 0 0 0]
+   [0 0 0 0 2 0 2 0 0 0]
+   [0 0 0 3 0 0 0 0 2 0]
+   [0 1 0 1 2 0 0 0 0 0]
+   [0 3 3 0 0 1 2 0 2 0]
+   [0 0 0 0 1 0 0 0 0 0]
+   [0 0 0 0 3 0 1 0 0 0]
+   [0 0 0 0 3 1 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]])
+
+(deftest generation-test
+  (testing "test case one: expected grid after one generation"
+    (is (= case-one-after
+           (njk/generation case-one)))))
+
+(def ten-ten
+  "The 10x10 grid from the problem set we have to solve for."
+  [[0 0 0 0 0 0 0 0 0 0]
+   [0 0 1 1 0 0 0 0 0 0]
+   [0 0 0 0 2 0 0 0 0 0]
+   [0 0 0 1 2 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 1 0 0 0 0 0 0 0]
+   [0 2 1 0 0 0 0 0 0 0]
+   [0 2 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]])
