@@ -1,10 +1,19 @@
 # nijikan
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library for evolving a modified game of life logic against a
+2-dimensional grid.
 
 ## Usage
 
-FIXME
+The functions are exposed from the `nijikan.core` namespace, but the primary
+function for evolving a grid over unknown generations is `run`, which returns
+a lazy sequence of generations starting with the first.
+
+```
+(nijikan/run [[0 0 0]
+              [2 0 2]
+              [0 0 0]])
+```
 
 ## License
 
