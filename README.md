@@ -15,6 +15,14 @@ a lazy sequence of generations starting with the first.
               [0 0 0]])
 ```
 
+## Testing
+
+This is a standard [lein](https://leiningen.org/) project. Once you have
+`lein` installed, tests can be run using:
+```
+lein test
+```
+
 ## License
 
 Copyright © 2021 Michael S. Daines
