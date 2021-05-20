@@ -32,4 +32,5 @@
           3
           0)
 
-      3 :senior)))
+      ;; Seniors die of natural causes.
+      3 0)))

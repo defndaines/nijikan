@@ -57,4 +57,4 @@
                        [0 1 3]] [1 1]))))
 
   (testing "aging of senior cells"
-    (is (= :senior (njk/age [[3]] [0 0])))))
+    (is (= 0 (njk/age [[3]] [0 0])))))
