@@ -42,6 +42,19 @@
                        [0 0 0]] [1 1]))))
 
   (testing "aging of adult cells"
-    (is (= :adult (njk/age [[2]] [0 0]))))
+    (is (= 0 (njk/age [[2]] [0 0])))
+    (is (= 0 (njk/age [[0 0 0]
+                       [0 2 0]
+                       [0 0 0]] [1 1])))
+    (is (= 3 (njk/age [[0 0 0]
+                       [0 2 0]
+                       [0 1 0]] [1 1])))
+    (is (= 3 (njk/age [[0 3 0]
+                       [0 2 0]
+                       [0 1 0]] [1 1])))
+    (is (= 0 (njk/age [[0 0 0]
+                       [0 2 2]
+                       [0 1 3]] [1 1]))))
+
   (testing "aging of senior cells"
     (is (= :senior (njk/age [[3]] [0 0])))))

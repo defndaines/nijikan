@@ -27,5 +27,9 @@
           2
           0)
 
-      2 :adult
+      ;; Adult cells need a neighbor, but less than 3 to grow to seniors.
+      2 (if (< 0 (count near) 3)
+          3
+          0)
+
       3 :senior)))
