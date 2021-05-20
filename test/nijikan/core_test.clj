@@ -17,3 +17,13 @@
     (let [adult-pos [3 1]]
       (is (= 2 (get-in grid adult-pos)))
       (is (= [1] (njk/neighbors grid adult-pos)))))))
+
+(deftest age-test
+  (testing "aging of empty cells"
+    (is (= :empty (njk/age [[0]] [0 0]))))
+  (testing "aging of newborn cells"
+    (is (= :newborn (njk/age [[1]] [0 0]))))
+  (testing "aging of adult cells"
+    (is (= :adult (njk/age [[2]] [0 0]))))
+  (testing "aging of senior cells"
+    (is (= :senior (njk/age [[3]] [0 0])))))

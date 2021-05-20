@@ -10,3 +10,12 @@
             n [(dec y) y (inc y)]
             :when (not (and (= x m) (= y n)))]
         (get-in grid [m n])))))
+
+(defn age
+  "Age a cell based upon rules around current state and neighbors."
+  [grid pos]
+  (case (get-in grid pos)
+    0 :empty
+    1 :newborn
+    2 :adult
+    3 :senior))
