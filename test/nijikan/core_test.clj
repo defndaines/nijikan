@@ -154,3 +154,26 @@
    [0 2 0 0 0 0 0 0 0 0]
    [0 0 0 0 0 0 0 0 0 0]
    [0 0 0 0 0 0 0 0 0 0]])
+
+(deftest run-test
+  (testing "able to run multiple generations of a grid"
+    (is (= ten-ten
+           (first (njk/run ten-ten))))
+    ;; Per problem ask, the starting grid is the "1" generation.
+    (is (not= ten-ten
+              (nth (njk/run ten-ten) 1))
+        "asking for first generation gives a changed grid")
+    (is (= (njk/generation ten-ten)
+           (second (njk/run ten-ten)))))
+  (testing "generation 20"
+    (is (= [[0 0 0 0 0 0 0 0 0 0]
+            [0 0 0 0 0 0 0 0 0 0]
+            [0 0 0 0 0 0 0 0 0 0]
+            [0 2 2 0 2 2 0 0 0 0]
+            [0 0 0 0 0 0 1 3 1 0]
+            [0 0 2 0 0 0 0 3 0 0]
+            [0 0 0 2 0 0 1 3 1 0]
+            [0 0 0 0 0 0 2 0 0 0]
+            [0 0 0 0 2 2 0 0 0 0]
+            [0 0 0 0 0 0 0 0 0 0]]
+           (first (drop 19 (njk/run ten-ten)))))))

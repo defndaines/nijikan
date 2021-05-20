@@ -43,3 +43,8 @@
         (assoc-in acc e (age grid e)))
       grid
       positions)))
+
+(defn run
+  "Use a lazy sequence to get an infinite evolution of the grid."
+  [grid]
+  (lazy-seq (cons grid (run (generation grid)))))
