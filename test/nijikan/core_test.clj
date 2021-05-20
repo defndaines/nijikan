@@ -83,10 +83,64 @@
    [0 0 0 0 0 0 0 0 0 0]
    [0 0 0 0 0 0 0 0 0 0]])
 
+(def case-two
+  [[0 0 0 0 0 0 0 0 0 0]
+   [0 0 1 1 0 0 2 0 0 0]
+   [0 0 3 3 2 0 0 0 2 0]
+   [0 1 0 0 0 0 0 0 2 0]
+   [0 0 3 0 0 1 2 0 0 0]
+   [0 0 1 3 3 3 0 0 0 0]
+   [0 0 0 1 0 1 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]])
+
+(def case-two-after
+  [[0 0 0 0 0 0 0 0 0 0]
+   [0 0 2 2 0 1 0 1 0 0]
+   [0 0 0 0 3 1 0 0 3 1]
+   [0 2 0 0 0 1 0 0 3 1]
+   [0 0 0 0 0 2 3 1 0 0]
+   [0 0 2 0 0 0 0 0 0 0]
+   [0 0 0 2 0 2 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]])
+
+(def case-three
+  [[0 0 0 0 1 3 1 0 0 0]
+   [0 0 0 0 0 3 0 0 0 0]
+   [0 0 2 0 0 0 0 3 1 0]
+   [0 0 2 0 2 3 0 0 3 0]
+   [0 0 2 0 0 0 0 3 0 0]
+   [0 0 0 0 0 2 1 3 1 0]
+   [0 0 0 0 2 2 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]])
+
+(def case-three-after
+  [[0 0 0 0 2 0 2 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 1 3 0 0 0 0 0 2 0]
+   [0 0 3 0 3 0 0 0 0 0]
+   [0 1 3 0 1 1 0 0 0 0]
+   [0 0 0 1 0 0 2 0 2 0]
+   [0 0 0 0 3 0 1 0 0 0]
+   [0 0 0 0 1 1 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]
+   [0 0 0 0 0 0 0 0 0 0]])
+
 (deftest generation-test
   (testing "test case one: expected grid after one generation"
     (is (= case-one-after
-           (njk/generation case-one)))))
+           (njk/generation case-one))))
+  (testing "test case two: expected grid after one generation"
+    (is (= case-two-after
+           (njk/generation case-two))))
+  (testing "test case three: expected grid after one generation"
+    (is (= case-three-after
+           (njk/generation case-three)))))
 
 (def ten-ten
   "The 10x10 grid from the problem set we have to solve for."
