@@ -20,9 +20,27 @@
 
 (deftest age-test
   (testing "aging of empty cells"
-    (is (= :empty (njk/age [[0]] [0 0]))))
+    (is (= 0 (njk/age [[0]] [0 0])))
+    (is (= 1 (njk/age [[0 2]
+                       [2 0]] [0 0])))
+    (is (= 0 (njk/age [[0 2]
+                       [2 2]] [0 0]))))
+
   (testing "aging of newborn cells"
-    (is (= :newborn (njk/age [[1]] [0 0]))))
+    (is (= 0 (njk/age [[1]] [0 0])))
+    (is (= 0 (njk/age [[0 0 0]
+                       [1 1 1]
+                       [1 1 1]] [1 1])))
+    (is (= 0 (njk/age [[0 0 0]
+                       [0 1 0]
+                       [0 1 0]] [1 1])))
+    (is (= 2 (njk/age [[0 0 0]
+                       [1 1 0]
+                       [1 1 1]] [1 1])))
+    (is (= 2 (njk/age [[1 1 0]
+                       [0 1 0]
+                       [0 0 0]] [1 1]))))
+
   (testing "aging of adult cells"
     (is (= :adult (njk/age [[2]] [0 0]))))
   (testing "aging of senior cells"
