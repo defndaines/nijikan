@@ -1,8 +1,12 @@
-(ns nijikan.core)
+(ns nijikan.core
+  "ProducePay coding challenge using a modified Conway's game of life logic.")
 
 ;; 1 (newborn), 2 (adult), or 3 (senior).
 
-(defn neighbors [grid pos]
+(defn neighbors
+  "Given a `grid` and a `pos` in the format of `[x y]` giving the
+  2-dimensional array index into the grid, return all live neighbors."
+  [grid pos]
   (let [[x y] pos]
     (remove
       (fn [v] (or (nil? v) (zero? v)))
@@ -17,7 +21,7 @@
   [grid pos]
   (let [near (neighbors grid pos)]
     (case (get-in grid pos)
-      ;; Empty cells spawn newborns if exactly two adult neighbors
+      ;; Empty cells spawn newborns if exactly two adult neighbors.
       0 (if (= 2 (count (filter #(= 2 %) near)))
           1
           0)
@@ -45,6 +49,6 @@
       positions)))
 
 (defn run
-  "Use a lazy sequence to get an infinite evolution of the grid."
+  "Get a lazy sequence of the (potentially) infinite evolution of a grid."
   [grid]
   (lazy-seq (cons grid (run (generation grid)))))
